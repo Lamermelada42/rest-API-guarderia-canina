@@ -30,9 +30,9 @@ public class Creation {
 
         String sql = "CREATE TABLE IF NOT EXISTS Clients (\n"
                 + " name text NOT NULL,\n"
-                + " document text NOT NULL PRIMARY KEY,\n"
+                + " document text PRIMARY KEY,\n"
                 + " address text NOT NULL,\n"
-                + " pet text NOT NULL,\n"
+                + " pet text NOT NULL\n"
                 + ");";
 
         try{
