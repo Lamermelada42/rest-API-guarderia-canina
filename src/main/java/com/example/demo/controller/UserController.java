@@ -1,11 +1,12 @@
 package com.example.demo.controller;
 
 import com.example.demo.controller.dto.UsuarioDTO;
-import org.apache.catalina.User;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 public class UserController {
     static List<UsuarioDTO> clients = new ArrayList<>();
