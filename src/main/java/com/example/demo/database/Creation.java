@@ -10,7 +10,7 @@ public class Creation {
 
     public static void createNewDatabase(String fileName) {
 
-        String url = "jdbc:sqlite:D:/I.D.G/E.S/SQLite/DBGuarderia/" + fileName;
+        String url = "jdbc:sqlite:C:/" + fileName;
 
         try {
             Connection connection = DriverManager.getConnection(url);
@@ -24,24 +24,30 @@ public class Creation {
             System.out.println(e.getMessage());
         }
     }
+
     public static void createNewTable() {
 
-        String url = "jdbc:sqlite:D://I.D.G/E.S/SQLite/DBGuarderia/Dogcare.db";
+        String url = "jdbc:sqlite:C://Dogcare.db";
 
-        String sql = "CREATE TABLE IF NOT EXISTS Clients (\n"
+        String tableUser = "CREATE TABLE IF NOT EXISTS Clients (\n"
                 + " name text NOT NULL,\n"
                 + " document text PRIMARY KEY,\n"
                 + " address text NOT NULL,\n"
                 + " pet text NOT NULL\n"
                 + ");";
+        String tableReserve = "CREATE TABLE IF NOT EXISTS Reserves (\n"
+                + " document_reserve text NOT NULL,\n"
+                + " pet_name text NOT NULL,\n"
+                + " reserve_date text NOT NULL\n"
+                + ");";
 
-        try{
+        try {
             Connection connection = DriverManager.getConnection(url);
             Statement stmt = connection.createStatement();
-            stmt.execute(sql);
+            stmt.execute(tableUser);
+            stmt.execute(tableReserve);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
 }
-

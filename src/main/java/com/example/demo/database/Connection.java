@@ -7,7 +7,7 @@ public class Connection {
     public static void connect() {
         java.sql.Connection connection = null;
         try {
-            String url = "jdbc:sqlite:D:/I.D.G/E.S/SQLite/DBGuarderia/Dogcare.db";
+            String url = "jdbc:sqlite:C:/Dogcare.db";
             connection = DriverManager.getConnection(url);
             System.out.println("Connected to our database!");
 
