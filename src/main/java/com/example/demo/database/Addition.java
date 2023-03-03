@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class Addition {
 
     private Connection connect() {
-        String url = "jdbc:sqlite:D://I.D.G/E.S/SQLite/DBGuarderia/Dogcare.db";
+        String url = "jdbc:sqlite:C://Dogcare.db";
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(url);

@@ -10,7 +10,7 @@ public class Creation {
 
     public static void createNewDatabase(String fileName) {
 
-        String url = "jdbc:sqlite:D:/I.D.G/E.S/SQLite/DBGuarderia/" + fileName;
+        String url = "jdbc:sqlite:C:/" + fileName;
 
         try {
             Connection connection = DriverManager.getConnection(url);
@@ -26,7 +26,7 @@ public class Creation {
     }
     public static void createNewTable() {
 
-        String url = "jdbc:sqlite:D://I.D.G/E.S/SQLite/DBGuarderia/Dogcare.db";
+        String url = "jdbc:sqlite:C://Dogcare.db";
 
         String sql = "CREATE TABLE IF NOT EXISTS Clients (\n"
                 + " name text NOT NULL,\n"
