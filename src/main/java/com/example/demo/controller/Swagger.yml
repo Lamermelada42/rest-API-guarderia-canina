@@ -1,0 +1,181 @@
+openapi: 3.0.0
+info:
+  title: Guarderia API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+paths:
+  /guarderia:
+    post:
+      summary: Create a new client
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDTO'
+      responses:
+        201:
+          description: Cliente creado exitosamente
+        500:
+          description: Error interno del servidor
+    parameters:
+      - name: owner_name
+        in: query
+        required: true
+        description: The name of the client
+        schema:
+          type: string
+      - name: document
+        in: query
+        required: true
+        description: The client's document number
+        schema:
+          type: string
+      - name: address
+        in: query
+        required: true
+        description: The client's address
+        schema:
+          type: string
+      - name: pet_name
+        in: query
+        required: true
+        description: The name of the client's pet
+        schema:
+          type: string
+  /guarderia/reserva:
+    post:
+      summary: Create a new reservation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReserveDTO'
+      responses:
+        201:
+          description: Reserva creada exitosamente
+        500:
+          description: Error interno del servidor
+    parameters:
+      - name: reserve_date
+        in: query
+        required: true
+        description: The reserved date in the format yyyy-mm-dd
+        schema:
+          type: string
+      - name: pet_name
+        in: query
+        required: true
+        description: The name of the pet to reserve
+        schema:
+          type: string
+      - name: document
+        in: query
+        required: true
+        description: The document number of the pet's owner
+        schema:
+          type: string
+  /guarderias/all:
+    get:
+      summary: Get a list of all clients
+      responses:
+        200:
+          description: Lista de clientes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserDTO'
+        500:
+          description: Error interno del servidor
+  /guarderias/reserva/all:
+    get:
+      summary: Get a list of all reservations
+      responses:
+        200:
+          description: Lista de reservas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReserveDTO'
+        500:
+          description: Error interno del servidor
+  /guarderias/reserva:
+    get:
+      summary: Search for reservations by reserved date
+      parameters:
+        - name: reserve_date
+          in: query
+          required: true
+          description: The reserved date in the format yyyy-mm-dd
+          schema:
+            type: string
+      responses:
+        200:
+          description: Lista de reservas encontradas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReserveDTO'
+        500:
+          description: Error interno del servidor
+  /guarderias/reservas:
+    get:
+      summary: Search for reservations by owner document
+      parameters:
+        - name: document
+          in: query
+          required: true
+          description: The owner's document number
+          schema:
+            type: string
+      responses:
+        200:
+          description: Lista de reservas encontradas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReserveDTO'
+        500:
+          description: Error interno del servidor
+components:
+  schemas:
+    UserDTO:
+      type: object
+      properties:
+        owner_name:
+          type: string
+        document:
+          type: string
+        address:
+          type: string
+        pet_name:
+          type: string
+      required:
+        - owner_name
+        - document
+        - address
+        - pet_name
+    ReserveDTO:
+      type: object
+      properties:
+        document:
+          type: string
+        pet_name:
+          type: string
+        reserve_date:
+          type: string
+          format: date
+      required:
+        - document
+        - pet_name
+        - reserve_date
