@@ -3,7 +3,6 @@ package com.example.demo.controller.dto;
 import lombok.Setter;
 import lombok.Data;
 import lombok.Getter;
-import lombok.ToString;
 
 @Data
 public class UserDTO {

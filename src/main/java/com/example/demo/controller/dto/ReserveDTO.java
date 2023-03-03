@@ -3,14 +3,12 @@ package com.example.demo.controller.dto;
 import lombok.Setter;
 import lombok.Data;
 import lombok.Getter;
-import lombok.ToString;
 
 @Data
 public class ReserveDTO {
-    @Setter @Getter private String owner_name;
     @Setter @Getter private String document;
-    @Setter @Getter private String address;
     @Setter @Getter private String pet_name;
+    @Setter @Getter private String service_date;
     public ReserveDTO(){
 
     }
@@ -18,9 +16,8 @@ public class ReserveDTO {
     public String toStringUsuario(){
 
         return "UsuarioDTO{" +
-                "owner='" + owner_name + '\'' +
+                "service_date='" + service_date + '\'' +
                 ", document='" + document + '\'' +
-                ", address='" + address + '\'' +
                 ", pet_name=" + pet_name +
                 '}';
     }
