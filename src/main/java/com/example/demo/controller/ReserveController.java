@@ -3,6 +3,11 @@ package com.example.demo.controller;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.controller.dto.ReserveDTO;
 import org.springframework.web.bind.annotation.*;
+import com.example.demo.database.Search;
+
+import ch.qos.logback.core.net.server.Client;
+
+import com.example.demo.database.Addition;
 import java.util.ArrayList;
 import java.util.List;
 @RestController
@@ -15,6 +20,10 @@ public class ReserveController {
     public void saveClient(@RequestBody ReserveDTO reserve) {
         if(reserves.size()<=19){
         reserves.add(reserve);
+        Addition add = new Addition();
+        add.reserve(reserve.getReserve_date(), reserve.getPet_name(), reserve.getDocument());
+        Search application = new Search();
+		application.selectReserve();
         }
     }
     @GetMapping(path = "/guarderias/reserva/all")

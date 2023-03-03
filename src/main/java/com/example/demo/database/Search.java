@@ -25,7 +25,7 @@ public class Search {
             Connection connection = this.connect();
             Statement stmt  = connection.createStatement();
             ResultSet rs    = stmt.executeQuery(sql);
-
+            System.out.println("______Clientes______");
             while (rs.next()) {
                 System.out.println(rs.getString("name") +  "\t" +
                         rs.getString("document") + "\t" +
@@ -38,13 +38,13 @@ public class Search {
     }
 
     public void selectReserve(){
-        String sql = "SELECT * FROM Reserves";
+        String sql = "SELECT * FROM Reserves ";
 
         try {
             Connection connection = this.connect();
             Statement stmt  = connection.createStatement();
             ResultSet rs    = stmt.executeQuery(sql);
-
+            System.out.println("_______Reservas________");
             while (rs.next()) {
                 System.out.println(rs.getString("document_reserve") +  "\t" +
                         rs.getString("pet_name") + "\t" +
