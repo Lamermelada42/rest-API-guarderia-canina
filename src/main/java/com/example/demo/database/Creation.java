@@ -35,10 +35,10 @@ public class Creation {
                 + " address text NOT NULL,\n"
                 + " pet text NOT NULL\n"
                 + ");";
-        String tableReserve = "CREATE TABLE IF NOT EXISTS Clients (\n"
+        String tableReserve = "CREATE TABLE IF NOT EXISTS Reserves (\n"
                 + " document text NOT NULL,\n"
                 + " pet_name text NOT NULL,\n"
-                + " reserve_date text NOT NULL,\n"
+                + " reserve_date text NOT NULL\n"
                 + ");";
 
         try {
