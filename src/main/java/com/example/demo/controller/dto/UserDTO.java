@@ -10,18 +10,5 @@ public class UserDTO {
     @Setter @Getter private String document;
     @Setter @Getter private String address;
     @Setter @Getter private String pet_name;
-    public UserDTO(){
-
-    }
-
-    public String toStringUsuario(){
-
-        return "UsuarioDTO{" +
-                "owner='" + owner_name + '\'' +
-                ", document='" + document + '\'' +
-                ", address='" + address + '\'' +
-                ", pet_name=" + pet_name +
-                '}';
-    }
 }
 
