@@ -1,4 +1,5 @@
 # rest-API-guarderia-canina
+# (IMPORTANTE ABRIR EL IDE COMO ADMINISTRADOR O NO DARA ACCESO AL DISCO PARA CREAR LA BASE DE DATOS)
 Repositorio dedicado a la creación y diseño de un sistema para una guardería canina.
  Requerimientos:
  "* Permitir registrar clientes con los siguientes atributos: Nombre, documento, Dirección de residencia, nombre mascota.
